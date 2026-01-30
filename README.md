@@ -15,7 +15,7 @@ docker build -t recruitment-hell-bingo .
 
 ### Run the Container
 ```bash
-docker run -d -p 8080:80 --name recruitment-bingo recruitment-hell-bingo
+docker run -d -p 80:80 --name recruitment-bingo recruitment-hell-bingo
 ```
 
 ### Access the App
