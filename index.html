@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitment Hell Bingo</title>
+    <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js" integrity="sha384-/SuXkqZg8YaB11nKhNGg6vLG6UNyN25MbUf/dM/xGaejOuYW9wb8wjZyHJC0NJvZ" crossorigin="anonymous"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js" integrity="sha384-cwAR0HFo58IXuvvHO2j/X7k1RnsFrfV0RNg9EILm+mSShzm8aH0Rao+6cF/1KpAO" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.23.5/babel.min.js" integrity="sha384-i7fVvNJlLPVOCGDEqpDfhR1kVmUWqFXLmKJkVDSfHqgfJlCxZqVY8vxfU/RFO8Hv" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        p {
+            color: white;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function App() {
+            return (
+                <div className="container">
+                    <h1>🎯 Recruitment Hell Bingo</h1>
+                    <p>
+                        A satirical bingo card about the current state of Junior recruitment processes in tech.
+                    </p>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
