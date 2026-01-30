@@ -15,11 +15,11 @@ docker build -t recruitment-hell-bingo .
 
 ### Run the Container
 ```bash
-docker run -d -p 80:80 --name recruitment-bingo recruitment-hell-bingo
+docker run -d -p 80:80 --name bingo bingo
 ```
 
 ### Access the App
-Open your browser and navigate to: `http://localhost:8080`
+Open your browser and navigate to: `http://localhost:80`
 
 ### Stop the Container
 ```bash

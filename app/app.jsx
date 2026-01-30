@@ -36,25 +36,26 @@ const TechRecruitmentBingo = () => {
       '5-step process for junior role',
       'Take-home assignment > 6 hours',
       '"Quick technical test" (full system design)',
-      'Feedback = "Not a match at this time"',
+      'Feedback = "It\'s not you, it\'s us"',
       'Different interviewer asks same questions again'
     ],
     // Row 5 - Corporate Poetry
     [
-      '"Fast-paced environment"',
-      '"Wear many hats"',
-      '"High ownership"',
-      '"We\'re like a family"',
-      '"Competitive salary" (it is not)'
+      'E-mail personally addressed to another candidate',
+      '"We want to invite you to the final interview - wait actually we are filling the position internally"',
+      'Applying at 22:00, rejected at 22:49: "After careful consideration..."',
+      '"We\'re like a family" but the family is dysfunctional',
+      '"Competitive salary" (it is not, but hey free coffee and snacks)'
     ]
   ];
 
   const bonusSquares = [
     'Rejection because "team priorities changed"',
     'Job reposted after rejection',
-    'Asked about a tool not in the job description',
+    '"Want to apply? Fill out this 10-page form on a broken legacy PHP third-party platform"',
     'Interviewer didn\'t read your CV',
-    '"Let\'s stay in touch" (never stays in touch)'
+    '"Let\'s stay in touch" (never stays in touch)',
+    '"We are a human-centred company" but you never spoke to a human in the whole process',
   ];
 
   // Initialize with center square (FREE SPACE) already checked
@@ -77,7 +78,7 @@ const TechRecruitmentBingo = () => {
       for (let i = 0; i < 5; i++) {
         if (checkedSquares[i].every(sq => sq)) {
           setHasBingo(true);
-          setBingoPattern(`Ligne ${i + 1} complète`);
+          setBingoPattern(`Row ${i + 1} complete`);
           setShowConfetti(true);
           return;
         }
@@ -87,7 +88,7 @@ const TechRecruitmentBingo = () => {
       for (let j = 0; j < 5; j++) {
         if (checkedSquares.every(row => row[j])) {
           setHasBingo(true);
-          setBingoPattern(`Colonne ${j + 1} complète`);
+          setBingoPattern(`Column ${j + 1} complete`);
           setShowConfetti(true);
           return;
         }
@@ -96,14 +97,14 @@ const TechRecruitmentBingo = () => {
       // Check diagonals
       if (checkedSquares.every((row, i) => row[i])) {
         setHasBingo(true);
-        setBingoPattern('Diagonale \\ complète');
+        setBingoPattern('Diagonal \\ complete');
         setShowConfetti(true);
         return;
       }
 
       if (checkedSquares.every((row, i) => row[4 - i])) {
         setHasBingo(true);
-        setBingoPattern('Diagonale / complète');
+        setBingoPattern('Diagonal / complete');
         setShowConfetti(true);
         return;
       }
@@ -146,7 +147,7 @@ const TechRecruitmentBingo = () => {
   const totalBonus = checkedBonus.filter(Boolean).length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-4 md:p-8 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-4 md:p-8 relative overflow-hidden flex items-center justify-center">
       {/* Animated background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-96 h-96 bg-red-500 rounded-full filter blur-3xl animate-pulse"></div>
@@ -179,24 +180,24 @@ const TechRecruitmentBingo = () => {
         </div>
       )}
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="flex items-center justify-center max-w-6xl mx-auto relative z-10 flex-col">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
           <div className="inline-block mb-4 px-6 py-2 bg-red-500/20 border-2 border-red-500 rounded-full">
             <span className="text-red-400 font-bold text-sm tracking-wider uppercase">Junior Dev Survival</span>
           </div>
           <h1 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight" style={{ fontFamily: 'Impact, Arial Black, sans-serif', textShadow: '3px 3px 0 rgba(239, 68, 68, 0.5)' }}>
-            BINGO DU RECRUTEMENT TECH 2026
+            TECH RECRUITMENT BINGO 2026
           </h1>
           <p className="text-xl md:text-2xl text-purple-200 font-medium italic">
-            Parce que souffrir seul, c'est pas drôle
+            Because suffering alone is no fun
           </p>
         </div>
 
         {/* Stats Bar */}
         <div className="flex justify-center gap-4 mb-6 flex-wrap">
           <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-lg px-4 py-2">
-            <span className="text-slate-400 text-sm">Cases cochées: </span>
+            <span className="text-slate-400 text-sm">Checked squares: </span>
             <span className="text-white font-bold">{totalChecked}/24</span>
           </div>
           {showAdvanced && (
@@ -220,8 +221,19 @@ const TechRecruitmentBingo = () => {
             <div className="bg-slate-900 rounded-md p-4 flex items-center gap-3">
               <Trophy className="text-yellow-400" size={32} />
               <div>
-                <p className="text-2xl font-bold text-white">🎉 BINGO ! 🎉</p>
-                <p className="text-yellow-200">{bingoPattern} — Félicitations, tu as officiellement vécu l'enfer du recrutement junior !</p>
+                <p className="text-2xl font-bold text-white">🎉 BINGO! 🎉</p>
+                <p className="text-yellow-200">
+                  {bingoPattern} — Congratulations, you have officially experienced{' '}
+                  <a 
+                    href="https://www.youtube.com/watch?v=WYp64dRHW2o" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="underline hover:text-yellow-100 transition-colors"
+                  >
+                    recruiting hell
+                  </a>
+                  {' '}as a Junior!
+                </p>
               </div>
             </div>
           </div>
@@ -274,7 +286,7 @@ const TechRecruitmentBingo = () => {
             onClick={() => setShowAdvanced(!showAdvanced)}
             className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white font-bold py-3 px-6 rounded-full transition-all transform hover:scale-105 shadow-lg"
           >
-            {showAdvanced ? '🔥 Masquer' : '🧨 Activer'} Mode Advanced (Bonus Squares)
+            {showAdvanced ? '🔥 Hide' : '🧨 Activate'} Advanced Mode (Bonus Squares)
           </button>
         </div>
 
@@ -309,12 +321,12 @@ const TechRecruitmentBingo = () => {
         )}
 
         {/* Footer */}
-        <div className="mt-12 text-center">
+        <div className="mt-12 text-center items-center">
           <p className="text-slate-400 text-sm italic">
             "We will contact you" - spoiler: <span className="text-slate-300 font-semibold">They never did</span>
           </p>
           <p className="text-slate-500 text-xs mt-2">
-            Created with rage and despair in 2026 🔥 Entirely vibe-coded like most recruiting processes anyway
+            Created with rage and despair in 2026 🔥 Entirely vibe-coded, like most recruiting processes anyway
           </p>
         </div>
       </div>
