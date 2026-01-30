@@ -12,7 +12,7 @@ const TechRecruitmentBingo = () => {
       '"We went with a more experienced candidate"',
       'Noreply rejection email',
       '"Great profile, but…"',
-      'Position put on hold',
+      'Position put on hold for 3 months',
       'Ghosted after interview'
     ],
     // Row 2 - Junior-Specific Pain
