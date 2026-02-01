@@ -1,0 +1,30 @@
+- name: Install application
+  hosts: myhosts
+  become: yes
+
+  tasks:
+    - name: Copy application files
+      copy:
+        src: ../app/
+        dest: /opt/bingo-hell/
+        owner: admin
+        group: admin
+        mode: '0755'
+
+    - name: Build application Docker image
+      community.docker.docker_image:
+        name: bingo-hell
+        build:
+          path: /opt/bingo-hell/
+        tag: latest
+        source: build
+
+    - name: Start application Docker container
+      docker_container:
+        name: bingo-hell
+        image: bingo-hell:latest
+        state: started
+        restart_policy: always
+        ports:
+          - "80:80"
+          - "443:443"

@@ -1,0 +1,6 @@
+myhosts:
+  hosts:
+    bingo-hell:
+      ansible_host: 52.47.183.40
+      ansible_user: admin
+      ansible_ssh_private_key_file: ~/.ssh/bingo-hell.pem

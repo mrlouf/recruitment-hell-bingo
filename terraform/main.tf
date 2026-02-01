@@ -7,7 +7,7 @@ module "cluster" {
 
   vpc_id              = "vpc-0c73afefcb9683ebd"
   subnet_id           = "subnet-0546fd4a2df0c1115"
-  instance_type       = "m7i-flex.large"
+  instance_type       = "t3.micro"
   instance_name       = "bingo-hell"
   security_group_name = "bingo-hell_sg"
   ssh_cidr_blocks     = ["0.0.0.0/0"]
