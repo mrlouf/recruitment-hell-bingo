@@ -1,0 +1,10 @@
+image:
+  repository: ghcr.io/mrlouf/bingos
+  tag: latest
+
+service:
+  port: 80
+
+ingress:
+  host: bingos.casa
+  tlsSecret: bingos-casa-tls

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bingos
+  namespace: bingos
+  labels:
+    app: bingos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bingos
+  template:
+    metadata:
+      labels:
+        app: bingos
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: bingos
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 80
