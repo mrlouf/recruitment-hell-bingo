@@ -15,8 +15,6 @@ spec:
       labels:
         app: bingos
     spec:
-      imagePullSecrets:
-        - name: ghcr-secret
       containers:
         - name: bingos
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
